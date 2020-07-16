@@ -15,16 +15,27 @@ namespace capstone.Controllers
     [Route("[controller]")]
     public class ClothesController : ControllerBase
     {
+
         [HttpGet]
         public IEnumerable<Clothes> Get()
         {
-            Clothes[] clothes = null;
+            Clothes[] Clothes = null;
             using (var context = new ApplicationDbContext())
             {
-                clothes =  context.Clothes.ToArray();
+                Clothes = context.Clothes.ToArray();
+            }
+            return Clothes;
+
+        }
+        [HttpPost]
+        public Clothes Post([FromBody]Clothes clothes)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                context.Clothes.Add(clothes);
+                context.SaveChanges();
             }
             return clothes;
-            
         }
     }
 }
