@@ -1,0 +1,31 @@
+<h1 id="tableLabel">Clothes</h1>
+
+<p *ngIf="!clothes"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="clothes">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Color</th>
+      <th>Fit</th>
+      <th>Length</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of clothes">
+      <td>{{ s.type }}</td>
+      <td>{{ s.color }}</td>
+      <td>{{ s.fit }}</td>
+      <td>{{ s.length }}</td>
+    </tr>
+  </tbody>
+</table>
+Type
+<input [(ngModel)]="newClothes.type" name="type" />
+Color
+<input [(ngModel)]="newClothes.color" name="color" />
+Fit
+<input [(ngModel)]="newClothes.fit" name="fit" />
+Length
+<input [(ngModel)]="newClothes.length" name="length" />
+<button (click)="save()">Save</button>

@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace capstone.Controllers
 {
-    [Authorize]
+     [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ClothesController : ControllerBase
